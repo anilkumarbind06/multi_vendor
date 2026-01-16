@@ -98,7 +98,7 @@ php artisan optimize:clear
 
 ### 8. Run Server
 ```bash
-php artisan serve
+php artisan serve | composer run dev
 ```
 
 App URL:
@@ -126,7 +126,7 @@ POST /api/login
 Request:
 ```json
 {
-  "email": "customer@example.com",
+  "email": "anilkumarbind06@gmail.com",
   "password": "password"
 }
 ```
