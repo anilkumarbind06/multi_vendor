@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('vendor_id');
+            $table->decimal('total', 10, 2);
+            $table->string('status')->default('placed'); // placed, cancelled
             $table->timestamps();
         });
     }

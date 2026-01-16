@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('order_id');
+            $table->string('status')->default('paid'); // pending, paid
             $table->timestamps();
         });
     }
