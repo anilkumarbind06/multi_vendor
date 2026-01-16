@@ -9,6 +9,7 @@ use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use App\Events\OrderPlaced;
 
 class CheckoutService
 {
@@ -80,6 +81,8 @@ class CheckoutService
 
             // Clear cart
             $cart->items()->delete();
+
+            event(new OrderPlaced($order));
 
             return $orders;
         });
