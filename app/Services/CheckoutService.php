@@ -40,6 +40,11 @@ class CheckoutService
 
                 // Re-check stock (important)
                 foreach ($items as $item) {
+
+                    $product = Product::where('id', $item->product_id)
+                    ->lockForUpdate()
+                    ->first();
+
                     if ($item->quantity > $item->product->stock) {
                         throw ValidationException::withMessages([
                             'stock' => "Insufficient stock for {$item->product->name}",
