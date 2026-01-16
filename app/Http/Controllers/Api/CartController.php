@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\CartService;
+use App\Http\Requests\AddToCartRequest;
 
 class CartController extends Controller
 {
@@ -12,12 +13,12 @@ class CartController extends Controller
     {
     }
 
-    public function add(Request $request)
+    public function add(AddToCartRequest $request)
     {
-        $request->validate([
+        /* $request->validate([
             'product_id' => 'required|exists:products,id',
             'quantity'   => 'required|integer|min:1',
-        ]);
+        ]); */
 
         $this->cartService->add(
             auth()->id(),
