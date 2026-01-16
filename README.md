@@ -57,8 +57,8 @@ Customers can add products from multiple vendors to a cart and, on checkout, the
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/your-username/multi_vendor_marketplace.git
-cd multi_vendor_marketplace
+git clone https://github.com/anilkumarbind06/multi_vendor.git
+cd multi_vendor
 ```
 
 ### 2. Install Dependencies
