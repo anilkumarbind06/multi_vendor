@@ -21,7 +21,13 @@ class OrderPolicy
      */
     public function view(User $user, Order $order): bool
     {
-        return false;
+        // Admin can view all orders
+        if ($user->role === 'admin') {
+            return true;
+        }
+
+        // Customer can view only their own orders
+        return $order->user_id === $user->id;
     }
 
     /**

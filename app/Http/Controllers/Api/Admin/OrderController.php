@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller
 {
@@ -49,6 +50,8 @@ class OrderController extends Controller
             'user',
             'payment'
         ])->findOrFail($id);
+
+        Gate::authorize('view', $order);
 
         return response()->json($order);
     }
