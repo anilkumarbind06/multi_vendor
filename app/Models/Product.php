@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'vendor_id',
+        'name',
+        'price',
+        'stock',
+    ];
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
 }
