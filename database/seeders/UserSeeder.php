@@ -16,11 +16,21 @@ class UserSeeder extends Seeder
         \App\Models\User::truncate();
 
         \App\Models\User::create([
+            'name'              => 'Admin',
+            'email'             => 'admin@altrone.com',
+            'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token'    => Str::random(10),
+            'email_verified_at' => now(),
+            'role'              => 'admin'
+        ]);
+
+        \App\Models\User::create([
             'name'              => 'Anil Bind',
             'email'             => 'anilkumarbind06@gmail.com',
             'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token'    => Str::random(10),
             'email_verified_at' => now(),
+            'role'              => 'customer'
         ]);
 
         \App\Models\User::factory()->count(10)->create(); // count(2) means it will loop that much time
