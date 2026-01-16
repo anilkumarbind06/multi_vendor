@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-// use App\Http\Controllers\Api\ProductController;
-// use App\Http\Controllers\Api\VendorController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CheckoutController;
 use App\Http\Controllers\Api\Admin\OrderController as AdminOrderController;
@@ -11,17 +9,6 @@ use App\Http\Controllers\Api\Admin\OrderController as AdminOrderController;
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-
-    // Route::post('/cart/add', [CartController::class, 'add']);
-    // Route::get('/cart', [CartController::class, 'view']);
-    // Route::post('/checkout', [CheckoutController::class, 'checkout']);
-
-    // Products & Vendors (browse)
-    // Route::get('/products', [ProductController::class, 'index']);
-    // Route::get('/products/{id}', [ProductController::class, 'show']);
-
-    // Route::get('/vendors', [VendorController::class, 'index']);
-    // Route::get('/vendors/{id}', [VendorController::class, 'show']);
 
     // Cart (Customer)
     Route::post('/cart/add', [CartController::class, 'add']);
@@ -32,7 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Checkout
     Route::post('/checkout', [CheckoutController::class, 'checkout']);
 
-    // Customer Orders (own orders)
+    // Customer Orders
     Route::get('/orders', [CheckoutController::class, 'myOrders']);
     Route::get('/orders/{id}', [AdminOrderController::class, 'show']);
 

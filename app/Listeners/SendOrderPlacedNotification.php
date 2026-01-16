@@ -24,7 +24,6 @@ class SendOrderPlacedNotification
     {
         $order = $event->order;
 
-        // Mock email / notification
         Log::info('Order placed', [
             'order_id' => $order->id,
             'user_id'  => $order->user_id,
